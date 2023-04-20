@@ -180,13 +180,13 @@ def main():
         print(f"\t（暗色主题）: http://localhost:{PORT}/?__dark-theme=true")
         def open(): 
             time.sleep(2)       # 打开浏览器
-            webbrowser.open_new_tab(f"http://localhost:{PORT}/?__dark-theme=true")
+            webbrowser.open_new_tab(f"http://localhost:{PORT}/?__dark-theme=false")
         threading.Thread(target=open, name="open-browser", daemon=True).start()
         threading.Thread(target=auto_update, name="self-upgrade", daemon=True).start()
         threading.Thread(target=warm_up_modules, name="warm-up", daemon=True).start()
 
     auto_opentab_delay()
-    demo.queue(concurrency_count=CONCURRENT_COUNT).launch(server_name="0.0.0.0", server_port=PORT, auth=AUTHENTICATION, favicon_path="docs/logo.png")
+    demo.queue(concurrency_count=CONCURRENT_COUNT).launch(server_name="0.0.0.0", server_port=PORT, auth=AUTHENTICATION, share=False, favicon_path="docs/logo.png")
 
 if __name__ == "__main__":
     main()

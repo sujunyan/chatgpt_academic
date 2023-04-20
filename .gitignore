@@ -145,3 +145,6 @@ cradle*
 debug*
 private*
 crazy_functions/test_project/pdf_and_word
+
+# Added by Junyan Su
+key.txt
